@@ -9,7 +9,7 @@ namespace HomophonicSubstitutionSolver
         // ------------------------------------------------------------------------------------------------------------------
         #region Fields
         public float[] nGrams;      // 1D-Array for nGrams (faster than multidimensional array)
-        public int alphabetSize;    // Usualla 26 (A-Z)
+        public int alphabetSize;    // Usually 26 (A-Z)
         public int nGramLength;     // Currently only 5-grams are supported
         #endregion
 

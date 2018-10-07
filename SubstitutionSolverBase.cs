@@ -123,7 +123,7 @@ namespace HomophonicSubstitutionSolver
         // ------------------------------------------------------------------------------------------------------------------
         public float GetIndexOfCoincidence()
         {
-            // This method calculated the raw index of coincidence. The following calculation
+            // This method calculates the raw index of coincidence. The following calculation
             // has to be done separately:
             // ic /= (float)(cipherTextLength * (cipherTextLength - 1));
 
