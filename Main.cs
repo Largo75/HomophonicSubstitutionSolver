@@ -28,7 +28,7 @@ If this solver should lead to the cracking of the previously unsolved z340 of th
 http://zodiackillersite.com/viewforum.php?f=81
 Some of the members there have put years of work into this topic.
 
-If you have any questions, suggestions or ideas, please also use the forum you just linked to.
+If you have any questions, suggestions or ideas, please also use the forum linked above.
 
  * */
 namespace HomophonicSubstitutionSolver

@@ -44,7 +44,7 @@ namespace HomophonicSubstitutionSolver
                 2.360f,     // w
                 0.150f,     // x
                 1.974f,     // y
-                0.074f      // kz
+                0.074f      // z
             };
 
             // Create a table which contains the numbers 0-25 (A-Z) according to
@@ -119,7 +119,7 @@ namespace HomophonicSubstitutionSolver
             Int64 letterIndex = 0;
             Int64 oldLetter = 0;
             float newScore = 0.0f;
-            float da, da2, db, db2 = 0.0f;
+            float distOld1, distNew1, distOld2, distNew2 = 0.0f;
             float oldIC = 0.0f;
 
             Random rnd = new Random(Guid.NewGuid().GetHashCode());
@@ -165,18 +165,18 @@ namespace HomophonicSubstitutionSolver
 
                 // We don't need to determine the unigram distribution again.
                 // It is better to consider only the number of new and dropped letters.
-                da = icTable[unigramDistribution[oldLetter]];
-                db = icTable[unigramDistribution[letterIndex]];
+                distOld1 = icTable[unigramDistribution[oldLetter]];
+                distOld2 = icTable[unigramDistribution[letterIndex]];
 
                 unigramDistribution[oldLetter] -= symbolCount;
                 unigramDistribution[letterIndex] += symbolCount;
 
-                da2 = icTable[unigramDistribution[oldLetter]];
-                db2 = icTable[unigramDistribution[letterIndex]];
+                distNew1 = icTable[unigramDistribution[oldLetter]];
+                distNew2 = icTable[unigramDistribution[letterIndex]];
                                 
                 // Same for index of coincidence. We don't need to calculate the whole thing.
-                currentIC -= Math.Abs(da-da2);
-                currentIC += Math.Abs(db-db2);                
+                currentIC -= Math.Abs(distOld1-distNew1);
+                currentIC += Math.Abs(distOld2-distNew2);                
 
                 // Normalize the score
                 newScore *= 1.0f + (currentIC / (float)(cipherTextLength * (cipherTextLength - 1)) * icWeight);
